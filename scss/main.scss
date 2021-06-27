@@ -1,0 +1,636 @@
+@import './veriables';
+@import './mixin';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Mulish";
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.nav-list {
+    
+  &__item {
+      margin-right: 60px;
+  }
+    
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 30px;
+    color: #333333;
+
+    &__leater {
+        font: {
+            family: "Inter";
+            style: normal;
+            weight: bold;
+            size: 18px;
+        }
+        padding: 8px;
+        border-radius: 12px;
+        line-height: 22px;
+        background-color: $orange;
+        color: #FFFFFF;
+        
+    }
+}
+
+// navbar
+.nav-list {
+    padding: 0;
+    &__item {
+
+        &::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: $orange;
+            display: block;
+            margin: auto;
+            transition: 0.3s;
+            transform: translate(0, 10px);
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+
+    &__anchor {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 170%;
+        color: #333333;
+    }
+}
+
+// main button
+.btn {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 170%;
+    border: 1px solid $orange;
+    background-color: $orange;
+    color: #fff;
+    padding: 10px 32px;
+    cursor: pointer;
+    transition: all .25s linear;
+
+    &_outline-orange {
+        width: 100%;
+        padding: 16px 32px;
+        color: $orange;
+        background-color: #fff;
+        border: 2px solid $orange;  
+      }
+
+    &:hover {
+        opacity: .6;
+    }
+}
+
+
+// header
+.header {
+    padding: 40px 0;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 15;
+}
+
+// main section
+.main {
+    position: relative;
+    padding-top: 190px;
+
+    &__title {
+        font-weight: 800;
+        font-size: 54px;
+        line-height: 140%;
+        color: #222222;
+        margin-bottom: 20px;
+    }
+
+    &__subtitle {
+        @include subtitle;
+        margin-bottom: 36px;
+    }
+
+    &__img {
+        width: 100%;
+        height: 540px;
+        pointer-events: none;
+    }
+
+    &__sm-imgs {
+        position: absolute;
+        top: 0px;
+        right: -115px;
+    }
+
+    // &__sm-imgs-item {
+    //     margin-bottom: 10px;
+    // }
+}
+
+// main > form
+.form-wrapper {
+    width: 100%;
+    position: absolute;
+    top: -240px;
+}
+
+// form -> coponent
+.form {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #fff;
+
+    &__input{
+        padding: 3px 0;
+        outline: none;
+        font-size: 18px;
+        border: none;
+        border-right: 1px solid #ddd;
+
+        &::placeholder {
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            line-height: 170%;
+            color: #AAAAAA;
+        }
+    }
+    
+    &__select {
+        padding: 3px 0;
+        font-size: 18px;
+        outline: none;
+        border: none;
+    }
+
+    &__option {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 16px;
+        color: #222222;
+        padding: 20px;
+    }
+}
+
+// Website for all section
+.section {
+    width: 95%;
+    height: 745px;
+    position: relative;
+    margin: 0 auto;
+    background-color: #F9F9F9;
+    padding: 176px 90px;
+    margin-top: 100px;
+    margin-bottom: 280px;
+
+    &__title {
+        @include title;
+        margin-bottom: 16px;
+    }
+
+    &__subtitle {
+        @include subtitle;
+        padding-bottom: 240px;
+    }
+}
+
+// Website for all --> componenta
+.website-info {
+    position: absolute;
+    top: 400px;
+    left: 60px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 38px;    
+
+    &__title {
+        @include sm-title;
+        font-size: 18px;
+        margin-top: 46px;
+        
+        &_blue {
+            margin-top: 25px;
+            color: #5887FF;
+        }
+    }
+
+    &__subtitle {
+        @include subtitle;
+    }
+
+    .card {
+        height: 200px;
+        padding: 38px 20px 19px 20px;
+        background-color: #fff;
+        transition: all .25s linear;
+        cursor: pointer;
+
+        &_align-center {
+            padding-top: 65px;
+            text-align: center;
+        }
+
+        &:hover {
+            box-shadow: 0 4px 5px 2px #ccc;
+            transform: translate(0, -10px);
+        }
+    }
+}
+
+// Feature section
+.features {
+
+    &__orange-title {
+        @include orange-title;
+    }
+
+    &__title {
+        @include title;
+        margin: 5px 0 16px 0;
+    }
+
+    &__subtitle {
+        @include subtitle;
+        margin-bottom: 64px;
+    }
+}
+
+// Feature -> cards componenta
+.features-info {
+    border-top: 1px solid #ddd;
+    padding: 42px 21px 42px 36px;
+    transition: all .25s linear;
+    opacity: .8;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+        box-shadow: -3px 2px 5px 2px #ddd;
+        transform: translate(10px, -10px);
+    }
+    
+
+    &_r-l-border {
+        border: {
+            left: 1px solid #ddd;
+            right: 1px solid #ddd;
+        }
+    }
+
+    &_border-t {
+        border-top: none;
+    }
+
+    &_border-b {
+        border-bottom: 1px solid #ddd; 
+    }
+
+    &__title {
+        @include sm-title;
+        font-size: 24px;
+        margin: 24px 0 8px 0;
+    }
+
+    &__subtitle {
+        @include subtitle;
+    }
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 220px;
+}
+
+// Testimonial section
+.testimonial {
+    margin-bottom: 180px;
+
+    &__orange-title {
+        @include orange-title;
+    }
+
+    &__title {
+        @include title;
+        margin: 5px 0 64px 0;
+    }
+
+    &__circle-arrow {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        padding: 11px;
+        background-color: #ddd;
+        cursor: pointer;
+        transition: all .2s linear;
+        color: #fff;
+        
+        &:hover {
+            background-color: $orange;
+        }
+    }
+}
+
+// Testimonial -> componenta
+.slider {
+    height: 282px;
+    padding: 40px 24px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all .25s linear;
+
+    &:hover {
+        border-color: $orange;
+    }
+
+    &__subtitle {
+        @include subtitle;
+        color: #333;
+        margin-bottom: 24px;
+    }
+}
+
+// slider -> avatar
+.avatar-wrapper {
+    
+    &__fname {
+        @include subtitle;
+        color: #333;
+    }
+
+    &__job {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 170%;
+        color: #777777;
+    }   
+}
+
+.avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+// Our Team section
+.our-team {
+    margin-bottom: 180px;
+
+    &__orange-title {
+        @include orange-title;
+    }
+
+    &__title {
+        @include title;
+        margin: 5px 0 16px 0;
+    }
+
+    &__subtitle {
+        @include subtitle;
+        margin-bottom: 64px;
+    }
+}
+
+// Our Team -> img componenta
+.person-wrapper {
+    position: relative;
+
+    &__img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    &__info {
+        width: 86%;
+        height: 100px;
+        text-align: center;
+        border: 1px solid #ddd;   
+        position: absolute;
+        left: 24px;
+        bottom: -50px;
+        padding: 20px 0;
+        background-color: #fff;
+    }
+
+    &__img-fname {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 170%;
+        text-align: center;
+        color: #333333;
+    }
+
+    &__img-job {
+        font-size: 14px;
+        line-height: 170%;
+        text-align: center;
+        color: #333333;
+    }
+}
+
+// OUR PRICING section
+.our-pricing {
+    margin-bottom: 180px;
+
+    &__orange-title {
+        @include orange-title;
+    }
+
+    &__title {
+        @include title;
+        margin: 5px 0 16px 0;
+    }
+
+    &__subtitle {
+        @include subtitle;
+        margin-bottom: 100px;
+    }
+}
+
+// Our pricing card -> component
+.pricing-card {
+    height: 580px;
+    border: 1px solid #ddd;
+    padding: 40px 30px 30px;
+    transition: all .25s linear;
+    // margin-bottom: 180px;
+
+    &:hover {
+        border-color: $orange;
+
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 170%;
+        color: #333333;
+    }
+
+    &__stock {
+        margin: 10px 0;
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 170%;
+        color: #333;
+    }
+
+    &__idr {
+        color: #777;
+    }
+
+    &__subtitle {
+        font-size: 16px;
+        line-height: 170%;
+        color: #555555;
+    }
+
+    &__hr {
+        width: 100%;
+        height: 1px;
+        background-color: #ddd;
+        margin: 42px 0 32px 0;
+    }
+
+    &__checkbox-circle{
+        position: relative;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #0cbf9e23;
+    }
+
+    &__checkbox {
+        position: absolute;
+        top: 4px;
+        left: 9px;
+        width: 6px;
+        height: 12px;
+        border: solid #0CBF9F;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    &__job {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 170%;
+        color: #333333;
+    }
+
+}
+
+// clients section
+.client {
+    margin-bottom: 286px;
+
+    &__orange-title {
+        @include orange-title;
+    }
+
+    &__title {
+        @include title;
+        margin: 5px 0 60px 0;
+    }
+
+    &__anchor {
+        transition: all .25s linear;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+// quetion section
+.quetion {
+    padding: 120px 0;
+    background-color: #F9F9F9;
+    text-align: center;
+
+    &__title {
+        font-weight: 800;
+        font-size: 48px;
+        line-height: 160%;
+        color: #222222;
+        margin-bottom: 48px;
+    }
+
+}
+
+// footer
+.footer {
+    padding: 120px 0 40px 0;
+
+    &__subtitle {
+        @include footer-text;
+        color: #777;
+        margin: 36px 0 40px 0;
+    }
+    
+    &__social-network {
+        color: #777;
+        margin-right: 25px;
+        transition: all .25s linear;
+
+        &:hover {
+            color: blue;
+        }
+    }
+
+    &__copyright {
+        @include footer-text;
+        margin-top: 138px;
+    }
+
+}
+
+.navbar-list {
+
+    &__lg-item {
+        @include footer-text;
+        font-size: 18px;
+        margin-bottom: 34px;
+    }
+
+    &__item {
+        margin-bottom: 20px;
+    }
+    
+    &__anchor {
+        @include footer-text;
+        transition: all .25s linear;
+
+        &:hover {
+            color: $orange;
+        }
+    }
+}

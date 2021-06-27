@@ -1,0 +1,33 @@
+@mixin title {
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 170%;
+    color: $dark-gray;
+}
+
+@mixin  subtitle {
+    font-size: 18px;
+    line-height: 170%;
+    color: $gray;
+}
+
+@mixin sm-title {
+    font-style: normal;
+    font-weight: bold;
+    line-height: 170%;
+    color: #333333;
+}
+
+@mixin orange-title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 170%;
+    color: $orange;
+}
+
+@mixin footer-text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 170%;
+    color: #333;
+}
